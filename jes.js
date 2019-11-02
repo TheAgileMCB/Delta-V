@@ -12,27 +12,27 @@ function setup() {
 }
 
 function randomX(xMax) {
-    return Math.floor(Math.random() * Math.floor(xMax));
+    return Math.floor(Math.random() * xMax);
 }
 
 function randomY(yMax) {
-    return Math.floor(Math.random() * Math.floor(yMax));
+    return Math.floor(Math.random() * yMax);
 }
 
 function randomW(wMax) {
-    return Math.ceil(Math.random() * Math.ceil(wMax));
+    return Math.ceil(Math.random() * wMax);
 }
 
 function randomH(hMax) {
-    return Math.ceil(Math.random() * Math.ceil(hMax));
+    return Math.ceil(Math.random() * hMax);
 }
 
 function randomC(cMax) {
-    return Math.floor(Math.random() * Math.floor(cMax));
+    return Math.floor(Math.random() * cMax);
 }
 
 function randomSea(seaMax) {
-    return Math.floor(Math.random() * Math.floor(seaMax));
+    return Math.floor(Math.random() * seaMax);
 }
 
 function drawFish() {
