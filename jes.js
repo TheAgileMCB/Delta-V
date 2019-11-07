@@ -20,11 +20,11 @@ function randomY(yMax) {
 }
 
 function randomW(wMax) {
-    return Math.ceil(Math.random() * wMax);
+    return Math.ceil(Math.random() * (wMax - 20) + 20);
 }
 
 function randomH(hMax) {
-    return Math.ceil(Math.random() * hMax);
+    return Math.ceil(Math.random() * (hMax - 20) + 20);
 }
 
 function randomC(cMax) {
@@ -50,25 +50,6 @@ function drawFish() {
     ellipse(mouseX + wFish / 4, mouseY, hFish / 5, hFish / 5);
 } 
 
-function mousePressed() {
-    drawFish();
-}
-
-function keyPressed() {
-    drawWeeds();
-}
-
-function mouseReleased() {
-    drawWeeds();
-    drawBubble();
-}
-
-function draw() {
-    stroke(255, 190, 0);
-    strokeWeight(20);
-    line(0, 600, 1550, 600);
-}
-
 function drawWeeds() {
     noStroke();
     fill(50, randomC(cMax), 0);
@@ -90,4 +71,23 @@ function drawBubble() {
     noFill();
     ellipse(bubbleX, bubbleY, 30, 30);
     rect(bubbleX - 7, bubbleY - 7, 2, 2);
+};
+
+for (let i = 0; i < 100; i++) {
+    drawWeeds();
+    console.log(i);
+};
+
+function mousePressed() {
+    drawFish();
+}
+
+function mouseReleased() {
+    drawBubble();
+}
+
+function draw() {
+    stroke(255, 190, 0);
+    strokeWeight(20);
+    line(0, 600, 1550, 600);
 }
