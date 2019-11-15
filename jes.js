@@ -8,6 +8,9 @@ var seaMax = 22;
 function setup() {
     createCanvas(1550, 600);
     noStroke();
+    for (let i = 0; i < 100; i++) {
+        drawWeeds();
+    };
     noLoop();
 }
 
@@ -71,11 +74,6 @@ function drawBubble() {
     noFill();
     ellipse(bubbleX, bubbleY, 30, 30);
     rect(bubbleX - 7, bubbleY - 7, 2, 2);
-};
-
-for (let i = 0; i < 100; i++) {
-    drawWeeds();
-    console.log(i);
 };
 
 function mousePressed() {
