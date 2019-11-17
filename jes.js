@@ -5,11 +5,16 @@ var hMax = 120;
 var cMax = 256;
 var seaMax = 22;
 
+var fishes = [];
+
 function setup() {
     createCanvas(1550, 600);
     noStroke();
     for (let i = 0; i < 100; i++) {
         drawWeeds();
+    };
+    for (let f = 0; f < 50; f++) {
+        drawFish();
     };
     noLoop();
 }
@@ -39,18 +44,18 @@ function randomSea(seaMax) {
 }
 
 function drawFish() {
-    // var xFish = randomX(xMax);
-    // var yFish = randomY(yMax);
+    var xFish = randomX(xMax);
+    var yFish = randomY(yMax);
     var wFish = randomW(wMax);
     var hFish = randomH(hMax);
     var wTail = wFish / 4;
     var hTail = hFish / 2;
     noStroke();
     fill(randomC(cMax), randomC(cMax), randomC(cMax));
-    ellipse(mouseX, mouseY, wFish, hFish);
-    triangle(mouseX - wFish / 2, mouseY, mouseX - wFish / 2 - wTail, mouseY - hTail, mouseX - wFish / 2 - wTail, mouseY + hTail);
+    ellipse(xFish, yFish, wFish, hFish);
+    triangle(xFish - wFish / 2, yFish, xFish - wFish / 2 - wTail, yFish - hTail, xFish - wFish / 2 - wTail, yFish + hTail);
     fill(randomC(cMax), randomC(cMax), randomC(cMax));
-    ellipse(mouseX + wFish / 4, mouseY, hFish / 5, hFish / 5);
+    ellipse(xFish + wFish / 4, yFish, hFish / 5, hFish / 5);
 } 
 
 function drawWeeds() {
@@ -76,13 +81,13 @@ function drawBubble() {
     rect(bubbleX - 7, bubbleY - 7, 2, 2);
 };
 
-function mousePressed() {
-    drawFish();
-}
+// function mousePressed() {
+//     drawFish();
+// }
 
-function mouseReleased() {
-    drawBubble();
-}
+// function mouseReleased() {
+//     drawBubble();
+// }
 
 function draw() {
     stroke(255, 190, 0);
