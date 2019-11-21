@@ -1,5 +1,5 @@
 var fishes = [];
-var colors = ["red", "blue", "pink", "yellow", "green", "skyblue", "white", "purple", "orange", "grey"];
+var colors = ["aqua", "bisque", "burlywood", "navy", "teal", "olive", "crimson", "coral", "chartreuse", "cornsilk", "deeppink", "darkviolet", "firebrick", "forestgreen", "dimgrey", "darkorchid", "fuschia", "gold", "goldenrod", "greenyellow", "hotpink", "lawngreen", "mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumvioletred", "mintcream", "midnightblue", "paleturqoise", "peru", "rosybrown", "salmon", "seagreen", "sienna", "red", "blue", "pink", "yellow", "green", "skyblue", "white", "purple", "orange", "grey"];
 const theTimer = document.querySelector(".timer");
 
 var timer = [0,0,0,0];
@@ -102,10 +102,6 @@ class Fish {
         this.x = this.x + random(-2, 7);
         this.y = this.y + random(-1, 1);
         if(this.x > width+50) {
-            this.y = floor(random(0, height));
-            this.x = -50;
-        }
-        if(this.y > height+10) {
             this.y = floor(random(0, height));
             this.x = -50;
         }
