@@ -79,9 +79,8 @@ function drawBubble() {
 };
 
 mousePressed() {
-    // fish.splice(f, 1);
     drawBubble();
-}
+};
 
 // function mouseReleased() {
 //     drawBubble();

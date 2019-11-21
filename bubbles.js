@@ -1,14 +1,38 @@
 var fishes = [];
 var colors = ["red", "blue", "pink", "yellow", "green", "skyblue", "white", "purple", "orange", "grey"];
+const theTimer = document.querySelector(".timer");
+
+var timer = [0,0,0,0];
+var interval;
+var timerRunning = false;
+
+// Add leading zero to numbers 9 or below (purely for aesthetics):
+function leadingZero(time) {
+    if (time <= 9) {
+        time = "0" + time;
+    }
+    return time;
+}
+
+// Run a standard minute/second/hundredths timer:
+function runTimer() {
+    let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
+    theTimer.innerHTML = currentTime;
+    timer[3]++;
+
+    timer[0] = Math.floor((timer[3]/100)/60);
+    timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60));
+    timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
+}
 
 
 function setup() {
     createCanvas(1000, 600);
-    for (var i = 0; i < 30; i++) {
-        let x = random(width);
+    for (var i = 0; i < 100; i++) {
+        let x = -random(width);
         let y = random(height);
-        let w = random(40, 150);
-        let h = random(30, 120);
+        let w = random(30, 120);
+        let h = random(20, 100);
         let wTail = w/4;
         let hTail = h/2;
         let color = random(colors);
@@ -47,6 +71,7 @@ function draw() {
 
         background(20,150,255);
     for (let i = 0; i < fishes.length; i++) {
+        // fishes.push(floor(random(0,height)));
         fishes[i].move();
         fishes[i].show();
     };
@@ -66,7 +91,7 @@ class Fish {
 
     contains(px, py) {
         let d = dist(px, py, this.x, this.y);
-        if(d < this.w) {
+        if(d < this.w-this.w/2) {
             return true;
         } else {
             return false;
@@ -74,8 +99,16 @@ class Fish {
     }
 
     move() {
-        this.x = this.x + random(-2, 6);
+        this.x = this.x + random(-2, 7);
         this.y = this.y + random(-1, 1);
+        if(this.x > width+50) {
+            this.y = floor(random(0, height));
+            this.x = -50;
+        }
+        if(this.y > height+10) {
+            this.y = floor(random(0, height));
+            this.x = -50;
+        }
     }
 
     show() {
