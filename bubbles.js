@@ -35,11 +35,9 @@ function runTimer() {
 // }
 
 function setup() {
-    alert("Welcome to ANGLER MANAGEMENT! Your mission--should you accept it--is to Catch all these fish! Catch fish by clicking them.");
+    alert("Welcome to ANGLER MANAGEMENT! \n\nYour mission--should you choose to accept it--is to CATCH all these fish! \n\nCATCH fish by clicking them.");
     createCanvas(1000, 600);
-    timerRunning = true;
-    interval = setInterval(runTimer, 10);
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 10; i++) {
         let x = -random(width);
         let y = random(height);
         let w = random(30, 120);
@@ -53,6 +51,10 @@ function setup() {
     // for (let i = 0; i <= 70; i++) {
     //     drawWeeds();
     // };
+    if (!timerRunning) {
+        timerRunning = true;
+        interval = setInterval(runTimer, 10);
+    };
 }
 
 // function windowResized() {
@@ -82,19 +84,31 @@ function draw() {
 //             };
 //         }
 //     }
-
-        background(20,150,255);
+    
+    background(20,150,255);
     for (let i = 0; i < fishes.length; i++) {
-        // fishes.push(floor(random(0,height)));
         fishes[i].move();
         fishes[i].show();
     };
     if (fishes.length === 0) {
         noLoop();
-        alert("Good anglin', friend! Your time was ");
+        clearInterval(interval);
+        alert("GAME OVER! \n\nGood anglin', friend! \n\nYour time was " + theTimer.innerHTML) + "!";
     };
     console.log(fishes.length);
 }
+
+// Reset everything:
+// function reset() {
+//     clearInterval(interval);
+//     interval = null;
+//     timer = [0,0,0,0];
+//     timerRunning = false;
+//     theTimer.innerHTML = "00:00:00";
+//     redraw();
+// }
+
+// resetButton.addEventListener("click", reset, false);
 
 class Fish {
     constructor(x, y, w, h, wTail, hTail, color) {
