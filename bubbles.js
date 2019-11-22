@@ -24,10 +24,21 @@ function runTimer() {
     timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60));
     timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
 }
-
+// function drawWeeds() {
+//     noStroke();
+//     fill(50, random(256), 0);
+//     arc(random(width), height, random(22), 100, 525, false);
+//     fill(0, random(256), 60);
+//     arc(random(width), height, random(22), 200, 550, false);
+//     fill(0, random(256), 80);
+//     arc(random(width), height, random(22), 270, 550, false);
+// }
 
 function setup() {
+    alert("Welcome to ANGLER MANAGEMENT! Your mission--should you accept it--is to Catch all these fish! Catch fish by clicking them.");
     createCanvas(1000, 600);
+    timerRunning = true;
+    interval = setInterval(runTimer, 10);
     for (var i = 0; i < 100; i++) {
         let x = -random(width);
         let y = random(height);
@@ -38,7 +49,10 @@ function setup() {
         let color = random(colors);
         let b = new Fish(x, y, w, h, wTail, hTail, color);
         fishes.push(b);
-    }
+    };
+    // for (let i = 0; i <= 70; i++) {
+    //     drawWeeds();
+    // };
 }
 
 // function windowResized() {
@@ -75,6 +89,11 @@ function draw() {
         fishes[i].move();
         fishes[i].show();
     };
+    if (fishes.length === 0) {
+        noLoop();
+        alert("Good anglin', friend! Your time was ");
+    };
+    console.log(fishes.length);
 }
 
 class Fish {
@@ -91,7 +110,7 @@ class Fish {
 
     contains(px, py) {
         let d = dist(px, py, this.x, this.y);
-        if(d < this.w-this.w/2) {
+        if(d < this.w-this.w/4) {
             return true;
         } else {
             return false;

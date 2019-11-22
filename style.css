@@ -1,0 +1,19 @@
+html {
+    background-color: lightgray
+}
+canvas {
+    border: 6px solid lightblue; 
+    background-image: linear-gradient(to bottom right, rgba(160, 220, 250, 1), rgba(100, 140, 255, 1))
+}
+
+h1 {
+    font-size: 4em; 
+    text-align: center; 
+    color: blue;
+}
+
+
+.timer {
+    font-size: 3em;
+    font-weight: bold;
+}
