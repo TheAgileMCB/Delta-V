@@ -1,5 +1,9 @@
 html {
-    background-color: lightgray
+    background-color: lightgray;
+    text-align: center;
+}
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
 }
 canvas {
     border: 6px solid lightblue; 
@@ -8,10 +12,15 @@ canvas {
 
 h1 {
     font-size: 4em; 
-    text-align: center; 
     color: blue;
 }
 
+.meta {
+    margin-top: 1em;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* flex-wrap: wrap; */
+}
 
 .timer {
     font-size: 3em;
