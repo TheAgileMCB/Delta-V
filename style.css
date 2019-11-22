@@ -18,9 +18,9 @@ h1 {
 
 .meta {
     margin-top: 1em;
-    /* display: flex; */
+    /* display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap; */
 }
 
 .timer {

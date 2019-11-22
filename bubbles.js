@@ -20,9 +20,9 @@ function runTimer() {
     theTimer.innerHTML = currentTime;
     timer[3]++;
 
-    timer[0] = Math.floor((timer[3]/100)/60);
-    timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60));
-    timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
+    timer[0] = floor((timer[3]/100)/60);
+    timer[1] = floor((timer[3]/100) - (timer[0] * 60));
+    timer[2] = floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
 }
 // function drawWeeds() {
 //     noStroke();
@@ -93,7 +93,7 @@ function draw() {
     if (fishes.length === 0) {
         noLoop();
         clearInterval(interval);
-        alert("GAME OVER! \n\nGood anglin', friend! \n\nYour time was " + theTimer.innerHTML) + "!";
+        alert("GAME OVER! \n\nGood anglin', friend! \n\nYour time was " + theTimer.innerHTML + "!");
     };
     console.log(fishes.length);
 }
