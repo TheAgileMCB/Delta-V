@@ -6,6 +6,7 @@ var timer = [0,0,0,0];
 var interval;
 var timerRunning = false;
 
+
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 function leadingZero(time) {
     if (time <= 9) {
@@ -56,12 +57,11 @@ function setup() {
         interval = setInterval(runTimer, 10);
     };
 }
-
 // function windowResized() {
 //     resizeCanvas(windowWidth, windowHeight);
 //  }
 
-function mousePressed() {
+function touchStarted() {
     for (let i = fishes.length-1; i >= 0; i--) {
         if (fishes[i].contains(mouseX, mouseY)) {
             fishes.splice(i, 1);
@@ -132,7 +132,7 @@ class Fish {
     }
 
     move() {
-        this.x = this.x + random(-2, 7);
+        this.x = this.x + random(-2, random(0, 20));
         this.y = this.y + random(-1, 1);
         if(this.x > width+50) {
             this.y = floor(random(0, height));
