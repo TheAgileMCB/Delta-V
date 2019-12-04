@@ -35,11 +35,12 @@ function runTimer() {
 //     arc(random(width), height, random(22), 270, 550, false);
 // }
 
+// create canvas and constructor variables
 function setup() {
     alert("Welcome to ANGLER MANAGEMENT! \n\nYour mission--should you choose to accept it--is to CATCH all these fish! \n\nCATCH fish by clicking them.");
     createCanvas(400, 400);
     for (var i = 0; i < 10; i++) {
-        let x = -random(width);
+        let x = random(width);
         let y = random(height);
         let w = random(20, 100);
         let h = random(10, 80);
@@ -61,6 +62,7 @@ function setup() {
 //     resizeCanvas(windowWidth, windowHeight);
 //  }
 
+// fish "catch" on tap function
 function touchStarted() {
     for (let i = fishes.length-1; i >= 0; i--) {
         if (fishes[i].contains(mouseX, mouseY)) {
@@ -69,6 +71,7 @@ function touchStarted() {
     }
 }
 
+// draws background and fish movements
 function draw() {
     // "document.querySelector('style.canvas.background
    
@@ -110,6 +113,7 @@ function draw() {
 
 // resetButton.addEventListener("click", reset, false);
 
+// fish and seaweed constructor functions
 class Fish {
     constructor(x, y, w, h, wTail, hTail, color) {
         this.x = x;
