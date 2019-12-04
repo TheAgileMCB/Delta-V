@@ -39,7 +39,7 @@ function runTimer() {
 function setup() {
     alert("Welcome to ANGLER MANAGEMENT! \n\nYour mission--should you choose to accept it--is to CATCH all these fish! \n\nCATCH fish by clicking them.");
     createCanvas(400, 400);
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 100; i++) {
         let x = random(width);
         let y = random(height);
         let w = random(20, 100);
